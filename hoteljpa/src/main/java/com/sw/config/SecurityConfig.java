@@ -2,20 +2,34 @@ package com.sw.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import com.sw.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled=true)
 public class SecurityConfig {
 	
+	  private final CustomUserDetailsService userDetailsService;
+
+	    public SecurityConfig(CustomUserDetailsService uds) {
+	        this.userDetailsService = uds;
+	    }
+
+	    @Bean
+	    public DaoAuthenticationProvider authenticationProvider() {
+	        DaoAuthenticationProvider p = new DaoAuthenticationProvider();
+	        p.setUserDetailsService(userDetailsService);
+	        p.setPasswordEncoder(passwordEncoder());
+	        return p;
+	    }
 
 	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -44,6 +58,8 @@ public class SecurityConfig {
                 .loginProcessingUrl("/login")  // POST /login → 스프링 시큐리티가 처리
                 .defaultSuccessUrl("/firstpage", true)
                 .failureUrl("/login?error")
+                .usernameParameter("loginID")
+                .passwordParameter("loginPassword")
                 .permitAll()
             )
 
