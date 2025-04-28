@@ -9,10 +9,10 @@
 		<version>3.4.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tae9</groupId>
-	<artifactId>boardjpa</artifactId>
+	<groupId>com.sw</groupId>
+	<artifactId>hoteljpa</artifactId>
 	<version>0.0.1</version>
-	<name>boardjpa</name>
+	<name>hoteljpa</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
 	<licenses>
