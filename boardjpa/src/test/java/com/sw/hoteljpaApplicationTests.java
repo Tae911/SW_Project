@@ -1,10 +1,10 @@
-package com.tae9;
+package com.sw;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BoardjpaApplicationTests {
+class hoteljpaApplicationTests {
 
 	@Test
 	void contextLoads() {
