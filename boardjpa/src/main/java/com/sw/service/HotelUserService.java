@@ -1,12 +1,12 @@
-package com.yunsu.service;
+package com.sw.service;
 
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
-import com.yunsu.dto.UserDto;
-import com.yunsu.entity.HotelUser;
-import com.yunsu.repository.HotelUserRepository;
+import com.sw.dto.UserDto;
+import com.sw.entity.HotelUser;
+import com.sw.repository.HotelUserRepository;
 
 @Service
 public class HotelUserService {

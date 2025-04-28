@@ -1,4 +1,4 @@
-package com.yunsu.entity;
+package com.sw.entity;
 
 import java.time.LocalDateTime;
 

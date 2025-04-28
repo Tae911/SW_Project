@@ -1,4 +1,4 @@
-package com.yunsu.controller;
+package com.sw.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yunsu.dto.UserDto;
-import com.yunsu.entity.HotelUser;
-import com.yunsu.service.HotelUserService;
+import com.sw.dto.UserDto;
+import com.sw.entity.HotelUser;
+import com.sw.service.HotelUserService;
 
 @RestController
 @RequestMapping("/api/users")

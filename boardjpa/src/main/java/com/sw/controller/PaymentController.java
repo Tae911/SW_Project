@@ -1,4 +1,4 @@
-package com.yunsu.controller;
+package com.sw.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
