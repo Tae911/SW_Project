@@ -16,8 +16,8 @@ import com.jayway.jsonpath.JsonPath;
 @RequestMapping("/api/pay")
 public class PaymentController {
 
-    private final String API_KEY = "발급받은 REST API 키";
-    private final String API_SECRET = "발급받은 REST API 시크릿";
+    private final String API_KEY = "2470831017523584";
+    private final String API_SECRET = "6IUZgxdGFlxJIii8g20O9ZB7N1lupPliSBl7ce5UIuJewbSdy52EpOap7rqzEZTuWUVotdHsIpwWO60l";
 
     @PostMapping("/verify")
     public ResponseEntity<?> verifyPayment(@RequestBody Map<String, String> payload) throws Exception {
