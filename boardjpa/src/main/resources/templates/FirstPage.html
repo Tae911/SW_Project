@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko">
+<!--<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site Name - 호텔 예약</title>
+  <title>Site Name - 호텔 예약</title> 수정하기전 --> 
   <!-- Font Awesome (소셜 아이콘용) -->
-  <link
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-p6O3MlH8rj6oTJ1q9G+Y7Q23Ta5kXlW5R+E5E+QKZZwRws5iQd3nEvS9FQWlPNY1S+CWxvG3XmJY2ok7W0jv3g=="
@@ -144,7 +150,8 @@
   <header>
     <div class="logo">Site Name</div>
     <div class="user-links">
-      <a href="#">회원가입</a>
+     <!-- <a href="#">회원가입</a>-->
+	  <a th:href="@{/user/signup}">회원가입</a>
       <a href="#">로그인</a>
     </div>
   </header>
