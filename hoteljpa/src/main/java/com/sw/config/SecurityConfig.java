@@ -15,22 +15,51 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled=true)
 public class SecurityConfig {
-	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests((authorizeHttpRequest) -> 
-		authorizeHttpRequest.requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
-		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
-		.csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/**")))
-		.formLogin(formLogin -> formLogin.loginPage("/user/login").defaultSuccessUrl("/board/list"))
-		.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-				.logoutSuccessUrl("/board/list").invalidateHttpSession(true));
-		
-		return http.build();
-	}
 	
+
 	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            // 개발 중에는 CSRF를 꺼두고, 나중에 켜세요.
+            .csrf(csrf -> csrf.disable())
+
+            // 1) 인증 없이 접근 허용할 URL
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                  "/",              // root
+                  "/firstpage",     // firstPageController
+                  "/signupPage",	// 회원가입 폼
+                  "/signup",		// 회원가입 
+                  "/login",         // 로그인 폼
+                  "/css/**",        // 정적 리소스
+                  "/js/**",
+                  "/images/**"
+                ).permitAll()
+                .anyRequest().authenticated()  // 그 외는 로그인 필요
+            )
+
+            // 2) 폼 로그인
+            .formLogin(form -> form
+                .loginPage("/login")           // GET /login → 로그인 폼
+                .loginProcessingUrl("/login")  // POST /login → 스프링 시큐리티가 처리
+                .defaultSuccessUrl("/firstpage", true)
+                .failureUrl("/login?error")
+                .permitAll()
+            )
+
+            // 3) 로그아웃
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/firstpage")
+                .invalidateHttpSession(true)
+                .permitAll()
+            );
+
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

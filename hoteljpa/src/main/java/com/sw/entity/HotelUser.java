@@ -1,5 +1,6 @@
 package com.sw.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
@@ -27,6 +28,9 @@ public class HotelUser {
     @Column(nullable = false, length = 45)
     private String name;
 
+    @Column
+    private LocalDate birthday;
+    
     @Column(unique=true, nullable = false, length = 50)
     private String email;
 
@@ -39,7 +43,7 @@ public class HotelUser {
     @Column(unique=true, nullable = false, length = 45)
     private String loginID;
 
-    @Column(nullable = false, length = 45)
+    @Column(nullable = false, length = 255)
     private String loginPassword;
 
  
