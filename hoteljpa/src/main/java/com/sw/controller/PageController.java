@@ -66,5 +66,11 @@ public class PageController {
     public String savedPage() {
         return "savedPage";  // templates/firstPage.html
     }
-    
+     
+    @GetMapping("/reservationPage")
+    public String reservationPage(Model model, @AuthenticationPrincipal UserDetails ud) {
+        HotelUser user = hotelUserService.findByLoginId(ud.getUsername());
+        model.addAttribute("user", user);
+        return "reservationPage";
+    }
 }

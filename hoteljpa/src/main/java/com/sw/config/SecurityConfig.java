@@ -48,7 +48,8 @@ public class SecurityConfig {
                   "/css/**",        // 정적 리소스
                   "/js/**",
                   "/images/**",
-                  "/image/**"
+                  "/image/**",
+                  "reservationPage"
                 ).permitAll()
                 .anyRequest().authenticated()  // 그 외는 로그인 필요
             )
