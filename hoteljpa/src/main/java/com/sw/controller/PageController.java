@@ -61,4 +61,10 @@ public class PageController {
         model.addAttribute("user", user);
         return "myPage";
     }
+    
+    @GetMapping({"savedPage"})
+    public String savedPage() {
+        return "savedPage";  // templates/firstPage.html
+    }
+    
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">>
 <head>
   <meta charset="UTF-8">
   <title>찜한 목록</title>
@@ -252,10 +252,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">NickName님</a></li>
-        <li><a href="#">MyPage</a></li>
-        <li><a href="#">찜목록</a></li>
-        <li><a href="#">로그아웃</a></li>
+        <li><span th:text="${#authentication.name}"></span>님</li>
+        <li><a th:href="@{/myPage}">MyPage</a></li>
+        <li><a th:href="@{/savedPage}">찜목록</a></li>
+        <li><a th:href="@{/logout}">로그아웃</a></li>
       </ul>
     </nav>
   </header>

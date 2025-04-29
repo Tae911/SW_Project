@@ -151,7 +151,7 @@
 		<span th:text="${#authentication.name}"></span>님
 		</span>
 		<a sec:authorize="isAuthenticated()" th:href="@{/myPage}">MyPage</a>
-		<a href="#">찜 목록</a>
+		<a sec:authorize="isAuthenticated()" th:href="@{/savedPage}">찜 목록</a>
 	    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
       <!-- <a href="#">MyPage</a> 
       <a href="#">로그아웃</a>-->
