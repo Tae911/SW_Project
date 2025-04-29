@@ -49,7 +49,8 @@ public class SecurityConfig {
                   "/js/**",
                   "/images/**",
                   "/image/**",
-                  "reservationPage"
+                  "reservationPage",
+                  "/css/**"
                 ).permitAll()
                 .anyRequest().authenticated()  // 그 외는 로그인 필요
             )

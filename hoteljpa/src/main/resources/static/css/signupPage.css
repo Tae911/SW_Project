@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    color: #333;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    font-size: 1.2rem;
+}
+
+.login-link {
+    font-size: 0.9rem;
+}
+
+.container {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p.subtitle {
+    margin-bottom: 2rem;
+    font-size: 17px;
+    color: #666;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    gap: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.horizontal-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.horizontal-group input {
+    flex: 1;
+}
+
+.id-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.id-field label {
+    margin-bottom: 0.25rem;
+    /* 약간만 간격 */
+}
+
+.id-field .dup-check {
+    margin-bottom: 0.25rem;
+    /* 아래쪽 여백 살짝 */
+}
+
+.dup-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dup-check input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+
+}
+
+.dup-check button {
+    padding: 0.75rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    height: 100%
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+button.submit {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: none;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    margin-right: 0.5rem;
+    color: #666;
+}
