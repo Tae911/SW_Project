@@ -193,10 +193,8 @@
   <h2>회원정보</h2>
   <br/>
   <form>
-    <div class="horizontal-group">
-      <label>성명<input type="text" /></label>
-      <label>성별<input type="text" /></label>
-      <label>나이<input type="number" /></label>
+    <div class="half-group">
+      <label>이름<input type="text" /></label>
     </div>
     
     <label>이메일<input type="email" class="full-width" /></label>
@@ -209,7 +207,9 @@
       <label>비밀번호<input type="password" class="full-width" /></label>
     </div>
     
-    <label>주소<textarea rows="1" class="full-width"></textarea></label>
+    <div class="half-group">
+    <label>전화번호<input type="punNumber" class="full-width" /></label>
+    </div>
     
     <div class="reservation-buttons">
       <button type="submit">수정하기</button>
