@@ -49,6 +49,7 @@ public class PageController {
     public String loginForm() {
         return "loginPage";  // templates/loginPage.html
     }
+<<<<<<< HEAD
     
     /*@GetMapping({"/myPage"})
     public String myPage() {
@@ -73,4 +74,7 @@ public class PageController {
         model.addAttribute("user", user);
         return "reservationPage";
     }
+=======
+
+>>>>>>> refs/remotes/origin/practice/tae9
 }
