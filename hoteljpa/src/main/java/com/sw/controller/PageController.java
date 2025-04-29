@@ -43,4 +43,5 @@ public class PageController {
     public String loginForm() {
         return "loginPage";  // templates/loginPage.html
     }
+
 }

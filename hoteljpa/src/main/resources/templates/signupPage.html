@@ -177,15 +177,15 @@
 <body>
     <header>
         <div class="logo">🔴 Site Name</div>
-        <div class="login-link"><a href="#">로그인</a></div>
+        <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
     </header>
 
     <div class="container">
         <h1>회원가입</h1>
         <p class="subtitle">회원님의 정보를 입력해주세요.
         </p>
-
-        <form th:action="@{/signup}" th:object="${userDto}" method="post">
+		
+        <form th:action="@{/login}" th:object="${userDto}" method="post">
 			<!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
 			
             <label>이름
@@ -259,90 +259,4 @@
     </footer>
 </body>
 
-<!-- 수정전
-<body>
-    <header>
-        <div class="logo">🔴 Site Name</div>
-        <div class="login-link"><a href="#">로그인</a></div>
-    </header>
-
-    <div class="container">
-        <h1>회원가입</h1>
-        <p class="subtitle">회원님의 정보를 입력해주세요.
-        </p>
-
-        <form>
-            <label>이름
-                <input type="text" placeholder="이름을 입력해주세요">
-            </label>
-
-            <div class="id-field">
-                <label>아이디</label>
-                <div class="dup-check">
-                    <input type="text" placeholder="아이디 입력 (6~20자)" />
-                    <button type="button">중복확인</button>
-                </div>
-                <span class="error">사용할 수 없는 아이디입니다</span>
-            </div>
-
-            <label>비밀번호
-
-                <input type="password" placeholder="비밀번호 입력 (8자 이상)">
-                <span class="error">사용할 수 없는 비밀번호입니다</span>
-            </label>
-
-
-            <label>비밀번호 확인
-
-                <input type="password" placeholder="비밀번호 재입력">
-                <span class="error">비밀번호가 일치하지 않습니다</span>
-            </label>
-
-            <label>전화번호
-                <input type="text" placeholder="휴대폰 번호 입력 ('-' 제외)">
-            </label>
-
-            <label>이메일
-                <input type="email" placeholder="이메일 주소 입력">
-            </label>
-
-            <div class="horizontal-group">
-                <input type="number" placeholder="년도">
-                <input type="number" placeholder="월">
-                <input type="number" placeholder="일">
-            </div>
-
-            <div class="checkbox">
-                <input type="checkbox">
-                <span>개인정보 수집 및 이용에 대해 동의합니다.</span>
-            </div>
-
-            <button type="submit" class="submit">가입하기</button>
-        </form>
-    </div>
-
-    <footer>
-        <div class="footer-section">
-            <div>Site name</div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-        <div class="footer-section">
-            <div>Topic</div>
-            <div>Page</div>
-            <div>Page</div>
-            <div>Page</div>
-        </div>
-        <div class="footer-section">
-            <div>Topic</div>
-            <div>Page</div>
-            <div>Page</div>
-            <div>Page</div>
-        </div>
-    </footer>
-</body>
--->
 </html>
