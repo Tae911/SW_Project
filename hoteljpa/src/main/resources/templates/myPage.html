@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -145,17 +146,24 @@
   <header>
     <div class="logo">🔴 Site Name</div>
     <div class="nav-links">
-      <a href="#">NickName님</a>
-      <a href="#">MyPage</a>
-      <a href="#">찜 목록</a>
-      <a href="#">로그아웃</a>
+    <!--  <a href="#">NickName님</a> -->
+		<span sec:authorize="isAuthenticated()">
+		<span th:text="${#authentication.name}"></span>님
+		</span>
+		<a sec:authorize="isAuthenticated()" th:href="@{/myPage}">MyPage</a>
+		<a sec:authorize="isAuthenticated()" th:href="@{/savedPage}">찜 목록</a>
+	    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+      <!-- <a href="#">MyPage</a> 
+      <a href="#">로그아웃</a>-->
     </div>
   </header>
 
   <section class="welcome">
     <h1>MyPage</h1>
     <div class="hello">
-      <h4>NickName님, 환영합니다.</p>
+      <h4>		<span sec:authorize="isAuthenticated()">
+				<span th:text="${#authentication.name}"></span>
+				</span>님, 환영합니다.</p>
     </div>
   </section>
   <div class="divider"></div>
@@ -192,23 +200,23 @@
   <div class="divider"></div>
   <h2>회원정보</h2>
   <br/>
-  <form>
+  <form th:action="@{/myPage}" th:object="${user}" method="post">
     <div class="half-group">
-      <label>이름<input type="text" /></label>
+      <label>이름<input type="text" th:field="*{name}" /></label>
     </div>
     
-    <label>이메일<input type="email" class="full-width" /></label>
+    <label>이메일<input type="email" th:field="*{email}" class="full-width" /></label>
     
     <div class="half-group">
-      <label>아이디<input type="text" class="full-width" /></label>
-    </div>
-    
-    <div class="half-group">
-      <label>비밀번호<input type="password" class="full-width" /></label>
+      <label>아이디<input type="text" th:field="*{loginID}" class="full-width" /></label>
     </div>
     
     <div class="half-group">
-    <label>전화번호<input type="punNumber" class="full-width" /></label>
+      <label>비밀번호<input type="password" th:field="*{loginPassword}" class="full-width" /></label>
+    </div>
+    
+    <div class="half-group">
+    <label>전화번호<input type="text" th:field="*{punNumber}" class="full-width" /></label>
     </div>
     
     <div class="reservation-buttons">

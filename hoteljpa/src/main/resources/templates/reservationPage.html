@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">>
 
 <head>
     <meta charset="UTF-8">
@@ -461,11 +461,12 @@
     <header>
         <a href="#" class="logo"><span class="dot"></span>SiteName</a>
         <div class="main-nav">
-            <p>NickName님</p>
+            <p><span th:text="${#authentication.name}"></span>님</p>
         </div>
         <div class="user-actions">
             <button><img src="#" alt="MyPage"></button>
             <button><img src="#" alt="로그인"></button>
+			
         </div>
     </header>
     <div class="search-box">

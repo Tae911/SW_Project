@@ -1,9 +1,15 @@
 package com.sw.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import com.sw.dto.UserDto;
+import com.sw.entity.HotelUser;
 import com.sw.service.HotelUserService;
 
 @Controller
@@ -42,6 +48,31 @@ public class PageController {
     @GetMapping("/login")
     public String loginForm() {
         return "loginPage";  // templates/loginPage.html
+    }
+
+    
+    /*@GetMapping({"/myPage"})
+    public String myPage() {
+        return "myPage";  // templates/myPage.html
+    }*/
+    
+    @GetMapping("/myPage")
+    public String myPage(Model model, @AuthenticationPrincipal UserDetails ud) {
+        HotelUser user = hotelUserService.findByLoginId(ud.getUsername());
+        model.addAttribute("user", user);
+        return "myPage";
+    }
+    
+    @GetMapping({"savedPage"})
+    public String savedPage() {
+        return "savedPage";  // templates/firstPage.html
+    }
+     
+    @GetMapping("/reservationPage")
+    public String reservationPage(Model model, @AuthenticationPrincipal UserDetails ud) {
+        HotelUser user = hotelUserService.findByLoginId(ud.getUsername());
+        model.addAttribute("user", user);
+        return "reservationPage";
     }
 
 }

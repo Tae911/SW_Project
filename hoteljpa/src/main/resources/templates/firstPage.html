@@ -364,20 +364,25 @@
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">Site Name</div>
-        <div class="user-links">
-            <a sec:authorize="isAnonymous()" th:href="@{/signupPage}">회원가입</a>
-            <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
-            <!--<a th:href="@{/signupPage}">회원가입</a>
-		<a th:href="@{/login}">로그인</a>-->
-            <span sec:authorize="isAuthenticated()">
-                안녕하세요, <span th:text="${#authentication.name}">홍길동</span>님
-            </span>
-            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
-        </div>
+
+ 
+	<!-- Header -->
+	<header>
+		<div class="logo">Site Name</div>
+		<div class="user-links">
+			<a sec:authorize="isAnonymous()" th:href="@{/signupPage}">회원가입</a>
+			<a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
+			<!--<a th:href="@{/signupPage}">회원가입</a>
+			<a th:href="@{/login}">로그인</a>-->
+			<span sec:authorize="isAuthenticated()">
+				안녕하세요, <span th:text="${#authentication.name}">홍길동</span>님
+			</span>
+			<a sec:authorize="isAuthenticated()" th:href="@{/myPage}">MyPage</a>
+			<a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+
+		</div>
     </header>
+
 
     <!-- Hero + Booking Form -->
     <section class="hero">

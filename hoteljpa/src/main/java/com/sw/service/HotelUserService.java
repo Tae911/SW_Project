@@ -1,8 +1,11 @@
 package com.sw.service;
 
 import java.time.LocalDateTime;
+
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.sw.dto.UserDto;
 import com.sw.entity.HotelUser;
 import com.sw.repository.HotelUserRepository;
@@ -30,7 +33,12 @@ public class HotelUserService {
 	        return repo.save(user);
 	    }
 	
-	
+	    public HotelUser findByLoginId(String loginId) {
+	        return repo.findByLoginID(loginId)
+	                   .orElseThrow(() -> 
+	                        new UsernameNotFoundException("User not found with loginId: " + loginId)
+	                   );
+	    }
 	
 	
 	
