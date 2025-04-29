@@ -200,23 +200,23 @@
   <div class="divider"></div>
   <h2>회원정보</h2>
   <br/>
-  <form>
+  <form th:action="@{/myPage}" th:object="${user}" method="post">
     <div class="half-group">
-      <label>이름<input type="text" /></label>
+      <label>이름<input type="text" th:field="*{name}" /></label>
     </div>
     
-    <label>이메일<input type="email" class="full-width" /></label>
+    <label>이메일<input type="email" th:field="*{email}" class="full-width" /></label>
     
     <div class="half-group">
-      <label>아이디<input type="text" class="full-width" /></label>
-    </div>
-    
-    <div class="half-group">
-      <label>비밀번호<input type="password" class="full-width" /></label>
+      <label>아이디<input type="text" th:field="*{loginID}" class="full-width" /></label>
     </div>
     
     <div class="half-group">
-    <label>전화번호<input type="punNumber" class="full-width" /></label>
+      <label>비밀번호<input type="password" th:field="*{loginPassword}" class="full-width" /></label>
+    </div>
+    
+    <div class="half-group">
+    <label>전화번호<input type="text" th:field="*{punNumber}" class="full-width" /></label>
     </div>
     
     <div class="reservation-buttons">

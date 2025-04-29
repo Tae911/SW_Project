@@ -47,7 +47,8 @@ public class SecurityConfig {
                   "/login",         // 로그인 폼
                   "/css/**",        // 정적 리소스
                   "/js/**",
-                  "/images/**"
+                  "/images/**",
+                  "/image/**"
                 ).permitAll()
                 .anyRequest().authenticated()  // 그 외는 로그인 필요
             )
