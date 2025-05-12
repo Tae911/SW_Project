@@ -34,7 +34,7 @@ public class SecurityConfig {
 	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // 개발 중에는 CSRF를 꺼두고, 나중에 켜세요.
+            // 개발 중에는 CSRF를 꺼두고, 나중에 켜기
             .csrf(csrf -> csrf.disable())
 
             // 1) 인증 없이 접근 허용할 URL
@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .requestMatchers(
                   "/",              // root
                   "/firstpage",     // firstPageController
+                  "/error",
                   "/signupPage",	// 회원가입 폼
                   "/signup",		// 회원가입 
                   "/login",         // 로그인 폼
@@ -49,7 +50,8 @@ public class SecurityConfig {
                   "/js/**",
                   "/images/**",
                   "/image/**",
-                  "reservationPage"
+                  "/reservationPage",
+                  "/api/**"
                 ).permitAll()
                 .anyRequest().authenticated()  // 그 외는 로그인 필요
             )
