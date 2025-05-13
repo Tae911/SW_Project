@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+.body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #fff;
     color: #333;
@@ -22,26 +22,31 @@ body {
 }
 
 .logo {
-    padding-left: 1rem;
+    padding-left: 2rem;
     padding-top: 0.5rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
-.signup-link {
-    font-size: 0.9rem;
+.logo a {
+    text-decoration: none;
+    color: #000000;
 }
 
-.login-container {
+.signupLink {
+    font-size: 0.7rem;
+}
+
+.loginContainer {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 3rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-container h1 {
-    margin-bottom: 2rem;
+.loginContainer h1 {
+    margin-bottom: 1.5rem;
     font-size: 1.8rem;
     color: #333;
     border-bottom: 1px solid #ccc;
@@ -50,43 +55,49 @@ body {
     text-align: center;
 }
 
-form {
+.form {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.form-group {
+.formGroup {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-label {
+.label {
+    margin-top: 10px;
+    margin-left: 12px;
     font-size: 0.95rem;
-    color: #555;
+    color: #313131;
 }
 
-input[type="text"],
-input[type="password"] {
-    padding: 0.75rem;
+.input[type="text"],
+.input[type="password"] {
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     font-size: 1rem;
+    width: 20rem;
+    height: 3rem;
 }
 
-button {
-    padding: 0.9rem;
+.button {
+    margin-top: 15px;
+    width: 20rem;
+    height: 3rem;
     background: none;
     border: 1px solid #333;
     border-radius: 0.5rem;
-    font-size: 1rem;
+    font-size: 1rem;;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
+.button:hover {
     background-color: #333;
     color: #fff;
 }
@@ -109,27 +120,11 @@ button:hover {
     text-decoration: underline;
 }
 
-footer {
-    margin-top: auto;
-    padding-top: 2rem;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.footer-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.social-icons {
+.socialIcons {
     margin-top: 1rem;
 }
 
-.social-icons a {
+.socialIcons a {
     margin-right: 0.5rem;
     color: #666;
 }

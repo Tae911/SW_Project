@@ -1,5 +1,5 @@
 /* Swiper Custom Navigation Buttons (Global) */
-a {
+.a {
   text-decoration: none;
   color: inherit;
 }
@@ -22,15 +22,71 @@ a {
 
 body .react-datepicker__header {
   background-color: #ff6f61;
-  color: #fff;
+  color: #000000;
   border-bottom: none;
 }
 
 body .react-datepicker__current-month,
 body .react-datepicker__day-name {
-  color: #ffffff;
+  color: #000000;
 }
 
 body .react-datepicker__navigation-icon::before {
   border-color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background: #f1f1f1;
+    padding: 2rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.social-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #555;
 }

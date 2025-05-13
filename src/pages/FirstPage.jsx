@@ -191,17 +191,17 @@ const FirstPage = () => {
 
       {/* Footer */}
       <footer>
-        <div className={styles["footer-top"]}>
-          <div className={styles["footer-section"]}>
-            <div className={styles.logo}>Stay Manager</div>
-            <div className={styles["social-icons"]}>
+        <div className={"footer-top"}>
+          <div className={"footer-section"}>
+            <div className={"footer-logo"}>Stay Manager</div>
+            <div className={"social-icons"}>
               <a href="#"><i className="fab fa-facebook-f"></i></a>
               <a href="#"><i className="fab fa-instagram"></i></a>
               <a href="#"><i className="fab fa-twitter"></i></a>
             </div>
           </div>
 
-          <div className={styles["footer-section"]}>
+          <div className={"footer-section"}>
             <h4>Topic</h4>
             <ul>
               <li>Page</li>
@@ -210,7 +210,7 @@ const FirstPage = () => {
             </ul>
           </div>
 
-          <div className={styles["footer-section"]}>
+          <div className={"footer-section"}>
             <h4>Topic</h4>
             <ul>
               <li>Page</li>
@@ -220,7 +220,7 @@ const FirstPage = () => {
           </div>
         </div>
 
-        <div className={styles["footer-bottom"]}>
+        <div className={"footer-bottom"}>
           <p>© 2025 Site Name. All rights reserved.</p>
         </div>
       </footer>

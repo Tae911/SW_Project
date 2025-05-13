@@ -15,15 +15,17 @@ const LoginPage = () => {
   return (
     <div>
       <header className={styles.header}>
-        <div className={styles.logo}>🔴 Site Name</div>
+        <div className={styles.logo}>
+          <Link to="/">🔴 Stay Manager</Link>
+        </div>
       </header>
 
-      <div className={styles["login-container"]}>
+      <div className={styles.loginContainer}>
         <h1>로그인</h1>
         <form onSubmit={handleSubmit}>
-          <div className={styles["form-group"]}>
-            <label htmlFor="userId">아이디</label>
-            <input
+          <div className={styles.formGroup}>
+            <label htmlFor="userId" className={styles.label}>아이디</label>
+            <input className={styles.input}
               type="text"
               id="userId"
               name="loginID"
@@ -34,9 +36,9 @@ const LoginPage = () => {
             />
           </div>
 
-          <div className={styles["form-group"]}>
-            <label htmlFor="password">비밀번호</label>
-            <input
+          <div className={styles.formGroup}>
+            <label htmlFor="password" className={styles.label}>비밀번호</label>
+            <input className={styles.input}
               type="password"
               id="password"
               name="loginPassword"
@@ -47,7 +49,7 @@ const LoginPage = () => {
             />
           </div>
 
-          <button type="submit">로그인</button>
+          <button type="submit" className={styles.button}>로그인</button>
         </form>
 
         <div className={styles.links}>
@@ -57,26 +59,39 @@ const LoginPage = () => {
         </div>
       </div>
 
+      {/* Footer */}
       <footer>
-        <div className={styles["footer-section"]}>
-          <div>Site name</div>
-          <div className={styles["social-icons"]}>
-            <a href="#"><i className="fab fa-facebook-f"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
-            <a href="#"><i className="fab fa-twitter"></i></a>
+        <div className={"footer-top"}>
+          <div className={"footer-section"}>
+            <div className={"footer-logo"}>Stay Manager</div>
+            <div className={"social-icons"}>
+              <a href="#"><i className="fab fa-facebook-f"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div className={"footer-section"}>
+            <h4>Topic</h4>
+            <ul>
+              <li>Page</li>
+              <li>Page</li>
+              <li>Page</li>
+            </ul>
+          </div>
+
+          <div className={"footer-section"}>
+            <h4>Topic</h4>
+            <ul>
+              <li>Page</li>
+              <li>Page</li>
+              <li>Page</li>
+            </ul>
           </div>
         </div>
-        <div className={styles["footer-section"]}>
-          <div>Topic</div>
-          <div>Page</div>
-          <div>Page</div>
-          <div>Page</div>
-        </div>
-        <div className={styles["footer-section"]}>
-          <div>Topic</div>
-          <div>Page</div>
-          <div>Page</div>
-          <div>Page</div>
+
+        <div className={"footer-bottom"}>
+          <p>© 2025 Site Name. All rights reserved.</p>
         </div>
       </footer>
     </div>
