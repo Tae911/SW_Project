@@ -1,4 +1,9 @@
 /* Swiper Custom Navigation Buttons (Global) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .custom-prev {
   position: absolute;
   top: 50%;

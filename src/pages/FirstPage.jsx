@@ -8,6 +8,17 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ko } from 'date-fns/locale';
 import styles from '../css/FirstPage.module.css';
+import heroImage from '../assets/firstPage1.jpg';
+import r1 from '../assets/r1.jpg';
+import r2 from '../assets/r2.jpg';
+import r3 from '../assets/r3.jpg';
+import rc1 from '../assets/rc1.jpg';
+import rc2 from '../assets/rc2.jpg';
+import rc3 from '../assets/rc3.jpg';
+import event1 from '../assets/event1.jpg';
+import event2 from '../assets/event2.jpg';
+import event3 from '../assets/event3.jpg';
+import event4 from '../assets/event4.jpg';
 
 const FirstPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // 로그인 상태 가정
@@ -24,12 +35,13 @@ const FirstPage = () => {
 
       {/* Booking Form */}
       <section className={styles.hero}>
-        <div className={styles["hero-image"]}>
+        <div className={styles.heroImage}
+        style={{ backgroundImage: `url(${heroImage})` }}>
         <header className={styles.header}>
       <div className={styles.logo}>
         <Link to="/">Stay Manager</Link>
       </div>
-      <div className={styles["user-links"]}>
+      <div className={styles.userLinks}>
         {!isAuthenticated ? (
           <>
             <Link to="/signupPage">회원가입</Link>
@@ -45,7 +57,7 @@ const FirstPage = () => {
       </div>
     </header>
     </div>
-        <div className={styles["booking-form"]}>
+        <div className={styles.bookingForm}>
           <h2>원하는 숙소를 예약하세요</h2>
 
           <div className={styles["form-group"]}>
@@ -96,7 +108,7 @@ const FirstPage = () => {
             />
           </div>
 
-          <button className={styles["search-btn"]}>검색</button>
+          <button className={styles.searchBtn}>검색</button>
         </div>
       </section>
 
@@ -108,22 +120,22 @@ const FirstPage = () => {
 
       {/* 서비스 카드 */}
       <section className={styles.services}>
-        <div className={styles["service-item"]}>
-          <div className={styles["service-img1"]}></div>
+        <div className={styles.serviceItem}>
+          <div className={styles.serviceImg1} style={{ backgroundImage: `url(${rc1})` }}></div>
           <p>휴양</p>
         </div>
-        <div className={styles["service-item"]}>
-          <div className={styles["service-img2"]}></div>
+        <div className={styles.serviceItem}>
+          <div className={styles.serviceImg2} style={{ backgroundImage: `url(${rc2})` }}></div>
           <p>액티비티</p>
         </div>
-        <div className={styles["service-item"]}>
-          <div className={styles["service-img3"]}></div>
+        <div className={styles.serviceItem}>
+          <div className={styles.serviceImg3} style={{ backgroundImage: `url(${rc3})` }}></div>
           <p>쇼핑</p>
         </div>
       </section>
 
       {/* 광고 슬라이더 */}
-      <section className={styles["ad-slider"]}>
+      <section className={styles.adSlider}>
         <Swiper
           modules={[Navigation, Autoplay]}
           navigation={{
@@ -139,14 +151,14 @@ const FirstPage = () => {
         >
           <SwiperSlide>
             <div className={styles.slideBox}>
-              <div style={{ backgroundImage: 'url(/images/event1.jpg)' }}></div>
-              <div style={{ backgroundImage: 'url(/images/event2.jpg)' }}></div>
+              <div style={{ backgroundImage: `url(${event1})` }}></div>
+              <div style={{ backgroundImage: `url(${event2})` }}></div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className={styles.slideBox}>
-              <div style={{ backgroundImage: 'url(/images/event3.jpg)' }}></div>
-              <div style={{ backgroundImage: 'url(/images/event4.jpg)' }}></div>
+              <div style={{ backgroundImage: `url(${event3})` }}></div>
+              <div style={{ backgroundImage: `url(${event4})` }}></div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -159,18 +171,18 @@ const FirstPage = () => {
       <section className={styles.recommend}>
         <h3>추천 여행지</h3>
         <div className={styles.destinations}>
-          <div className={styles["dest-item"]}>
-            <div className={styles["dest-img1"]}></div>
+          <div className={styles.destItem}>
+            <div className={styles.destImg1} style={{ backgroundImage: `url(${r1})` }}></div>
             <h4>전주 한옥마을</h4>
             <p>한옥마을</p>
           </div>
-          <div className={styles["dest-item"]}>
-            <div className={styles["dest-img2"]}></div>
+          <div className={styles.destItem}>
+            <div className={styles.destImg2} style={{ backgroundImage: `url(${r2})` }}></div>
             <h4>제주도</h4>
             <p>성산일출봉</p>
           </div>
-          <div className={styles["dest-item"]}>
-            <div className={styles["dest-img3"]}></div>
+          <div className={styles.destItem}>
+            <div className={styles.destImg3} style={{ backgroundImage: `url(${r3})` }}></div>
             <h4>강릉</h4>
             <p>경포해변</p>
           </div>
