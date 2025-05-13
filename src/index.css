@@ -1,0 +1,31 @@
+/* Swiper Custom Navigation Buttons (Global) */
+.custom-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  z-index: 10;
+}
+
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  z-index: 10;
+}
+
+body .react-datepicker__header {
+  background-color: #ff6f61;
+  color: #fff;
+  border-bottom: none;
+}
+
+body .react-datepicker__current-month,
+body .react-datepicker__day-name {
+  color: #ffffff;
+}
+
+body .react-datepicker__navigation-icon::before {
+  border-color: #ffffff;
+}

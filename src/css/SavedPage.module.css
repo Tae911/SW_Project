@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 로고 */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.logo .dot {
+    width: 12px;
+    height: 12px;
+    background: #ff5c5c;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* 네비게이션 */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li+li {
+    margin-left: 24px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* 페이지 헤더 */
+.page-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.title .icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.filter-btn {
+    margin-left: auto;
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 테이블 */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead th {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody td {
+    padding: 24px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 카드 */
+.card {
+    display: flex;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 260px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 16px 24px;
+}
+
+/* 상단: 호텔명 + 일정버튼 */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.hotel-name {
+    font-size: 20px;
+    font-weight: 450;
+    margin: 0;
+}
+
+.btn-schedule {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #40c9c9;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 중단: 위치 + 시설 */
+.card-middle {
+    margin-bottom: 2px;
+}
+
+.location {
+    font-size: 16px;
+    color: black;
+    margin: 0;
+}
+
+.facilities span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    margin-right: 16px;
+}
+
+.facilities span::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+/* 하단: 평점 + 가격 */
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+}
+
+.rating {
+    font-size: 12px;
+    background: #fff1b8;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.price-info {
+    text-align: right;
+}
+
+.badge-discount {
+    display: inline-block;
+    font-size: 12px;
+    background: #ff4d4f;
+    color: black;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+}
+
+.per-night {
+    font-size: 12px;
+    color: black;
+    margin: 0 0 4px;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* 하단 버튼(선택 삭제, 전체 삭제) */
+.actions {
+    margin-top: 24px;
+    text-align: right;
+}
+
+.actions button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+/* 푸터 */
+footer {
+    margin-top: 40px;
+    padding: 24px 40px;
+    background: #fff;
+    font-size: 12px;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .links ul li+li {
+    margin-left: 24px;
+}
+
+footer .links ul li a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.divider {
+    border-top: 1px solid #ccc;
+}
