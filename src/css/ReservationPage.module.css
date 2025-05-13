@@ -1,0 +1,442 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    background: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    padding: 16px 40px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.logo .dot {
+    width: 12px;
+    height: 12px;
+    background: #ff5c5c;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    margin: 0 40px;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-box input {
+    flex: 0;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #565656;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-box .tag {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #565656;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search-box button {
+    width: 40px;
+    height: 40px;
+    background: #ff5c5c;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 24px;
+}
+
+.main-nav button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.main-nav .active {
+    color: #ff5c5c;
+    font-weight: 500;
+}
+
+.user-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user-actions img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Back link */
+.back-link {
+    display: block;
+    margin: 24px 40px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Hero Images */
+.hero {
+    display: grid;
+    grid-template-areas:
+        "big thumb1 thumb2"
+        "big thumb3 thumb4";
+    grid-gap: 4px;
+    margin: 0 40px;
+}
+
+.hero .big {
+    grid-area: big;
+    height: 350px;
+    background: #ddd;
+}
+
+.hero .thumb1 {
+    grid-area: thumb1;
+    height: 170px;
+    background: #eee;
+}
+
+.hero .thumb2 {
+    grid-area: thumb2;
+    height: 170px;
+    background: #eee;
+}
+
+.hero .thumb3 {
+    grid-area: thumb3;
+    height: 170px;
+    background: #eee;
+}
+
+.hero .thumb4 {
+    grid-area: thumb4;
+    height: 170px;
+    position: relative;
+    background: #eee;
+}
+
+.hero .thumb4 .more {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Section Tabs */
+.section-tabs {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 24px 40px;
+}
+
+.section-tabs button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.section-tabs .active {
+    color: #ff5c5c;
+    font-weight: 500;
+    border-bottom: 2px solid #ff5c5c;
+}
+
+/* Hotel Info */
+.hotel-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 40px;
+}
+
+.hotel-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.hotel-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.stars {
+    margin-top: 8px;
+}
+
+.stars span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('star.svg') no-repeat center/contain;
+    margin-right: 2px;
+}
+
+.facilities {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.facility {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+/* Map */
+.map {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Rooms Section */
+.section-header {
+    align-items: center;
+    margin: 24px 40px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.room-filters {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.room-filters .filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rooms {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 0 40px 24px;
+}
+
+.room-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.room-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #ddd;
+}
+
+.room-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-name {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.room-specs {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: auto;
+}
+
+.room-price {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 16px 0;
+}
+
+.reserve-btn {
+    background: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Policy */
+.policy {
+    background: #fff;
+    padding: 24px 40px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin: 0 40px 24px;
+    font-size: 14px;
+}
+
+.policy h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.policy ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* Reviews */
+.reviews {
+    background: #fff;
+    padding: 24px 40px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin: 0 40px 40px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.reviews-score {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.reviews-score span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.reviews-sub {
+    font-size: 14px;
+    color: #666;
+}
+
+.review {
+    border-top: 1px solid #e5e5e5;
+    padding: 16px 0;
+}
+
+.review:first-child {
+    border-top: none;
+}
+
+.review p {
+    font-size: 14px;
+}
+
+.review-meta {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+}
+
+.btn-more {
+    display: block;
+    width: calc(100% - 80px);
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Footer links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 24px;
+}
