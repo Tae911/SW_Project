@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/MyPage.module.css';
 import h1 from '../assets/h1.jpg';
 import instargram from '../assets/instargram.jpg';
 import facebook from '../assets/facebook.jpg';
 import twitter from '../assets/twitter.jpg';
+import { useNavigate } from "react-router-dom";
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState({
@@ -15,14 +16,87 @@ const MyPage = () => {
     punNumber: ''
   });
 
+const [isAuthenticated, setIsAuthenticated] = useState(true);  
+const navigate = useNavigate();
+
+// 1) 마운트 시 사용자 정보 가져오기 백엔드추가
+  useEffect(() => {
+    fetch('http://localhost:8080/api/userinfo', {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('세션 정보 불러오기 실패');
+        return res.json();
+      })
+      .then(data => {
+        console.log(data)
+        // 백엔드에서 반환하는 JSON 스키마에 맞춰서 매핑
+        setUserInfo({
+          name: data.name,
+          email: data.email,
+          loginID: data.loginID,
+          loginPassword: '',      // 보안을 위해 비밀번호는 빈 문자열로
+          punNumber: data.punNumber
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        setIsAuthenticated(false);
+      });
+  }, []);
+
+  // 2) input 값 바뀔 때마다 상태 업데이트, 백엔드수정
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUserInfo((prev) => ({ ...prev, [name]: value }));
+    setUserInfo(prev => ({ ...prev, [name]: value }));
   };
 
+  // 3) 수정하기 버튼 눌렀을 때 백엔드에 PUT, 백엔드 수정
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('수정 정보 제출:', userInfo);
+  e.preventDefault();
+
+  fetch('http://localhost:8080/api/userinfo', {
+    method: 'PUT',
+    credentials: 'include',               // 세션 쿠키 포함
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name:      userInfo.name,
+      email:     userInfo.email,
+      loginPassword: userInfo.loginPassword,  // 빈 문자열이면 백엔드에서 무시
+      punNumber: userInfo.punNumber
+    })
+  })
+  .then(res => {
+    if (!res.ok) throw new Error('정보 수정 실패');
+    return res.json();
+  })
+  .then(data => {
+    if (data.status === 'success') {
+      alert('회원정보가 수정되었습니다.');
+      // 필요하면 다시 최신 정보 GET 등 추가
+    } else {
+      alert('수정에 실패했습니다.');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('수정 중 오류가 발생했습니다.');
+  });
+};
+
+// 백엔드 로그아웃 추가
+const handleLogout = async () => {
+    try {
+      await fetch('http://localhost:8080/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+      setIsAuthenticated(false);
+      navigate('/');  // 로그아웃 후 홈으로
+    } catch (e) {
+      console.error('로그아웃 실패', e);
+    }
   };
 
   return (
@@ -33,10 +107,13 @@ const MyPage = () => {
           <Link to="/">🔴 Stay Manager</Link>
         </div>
         <div className="navLinks">
-          <a>OOO님</a>
+          <a>{userInfo.name}님</a>
           <a href="/myPage">MyPage</a>
           <a href="/savedPage">찜 목록</a>
-          <a href="/">로그아웃</a>
+          <Link to="/"
+              onClick={handleLogout}
+              className={styles.logoutLink}
+            >로그아웃</Link>
         </div>
       </header>
       {/* Header */}
@@ -44,7 +121,7 @@ const MyPage = () => {
       <section className={styles.welcome}>
         <h1 className={styles.h1}>MyPage</h1>
         <div className={styles.hello}>
-          <h4 className={styles.h4}>OOO님, 환영합니다.</h4>
+          <h4 className={styles.h4}>{userInfo.name}님, 환영합니다.</h4>
         </div>
       </section>
 

@@ -22,10 +22,13 @@ import event4 from '../assets/event4.jpg';
 import instargram from '../assets/instargram.jpg';
 import facebook from '../assets/facebook.jpg';
 import twitter from '../assets/twitter.jpg';
+import { useNavigate } from "react-router-dom";
 
 const FirstPage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // 로그인 상태 가정
-  const [username, setUsername] = useState('홍길동');
+  const mapRef = useRef(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState('');
+  const navigate = useNavigate(); // 백엔드 추가
 
   // 예약 관련 상태
   const [location, setLocation] = useState('');
@@ -33,8 +36,86 @@ const FirstPage = () => {
   const [checkout, setCheckout] = useState(null);
   const [guests, setGuests] = useState(1);
 
+  // 백엔드 로그인, 로그아웃 추가
+  useEffect(() => {
+    fetch('http://localhost:8080/api/userinfo', {
+      credentials: 'include'
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('네트워크 에러');
+        return res.json();
+      })
+      .then(data => {
+        // boolean 혹은 string 모두 커버
+        const auth = data.authenticated === true || data.authenticated === 'true';
+        setIsAuthenticated(auth);
+
+        // name 필드가 있으면 그걸, 없으면 username
+        const user = data.name || data.username || '';
+        setUsername(user);
+      })
+      .catch(() => {
+        setIsAuthenticated(false);
+        setUsername('');
+      });
+  }, []);
+
+  // ③ 카카오맵 SDK 로드 & 지도 초기화
+  useEffect(() => {
+    // 이미 kakao.maps 가 로드되어 있으면 바로 초기화
+    if (window.kakao && window.kakao.maps) {
+      window.kakao.maps.load(initMap);
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=d14da4067c563de35ba14987b99bdb89&autoload=false';
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.kakao.maps.load(initMap);
+    };
+
+    function initMap() {
+      if (!mapRef.current) return;
+      const options = {
+        center: new window.kakao.maps.LatLng(37.5665, 126.9780), // 서울시청
+        level: 4
+      };
+      new window.kakao.maps.Map(mapRef.current, options);
+    }
+
+    // cleanup
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+
+  const handleLogout = async () => {
+    try {
+      await fetch('http://localhost:8080/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+      setIsAuthenticated(false);
+      navigate('/');  // 로그아웃 후 홈으로
+    } catch (e) {
+      console.error('로그아웃 실패', e);
+    }
+  };
+
   return (
     <div>
+      {/* 1) 지도 섹션 백엔드 테스트용추가*/}
+      <section className={styles.mapSection}>
+        <h2>지도 서비스</h2>
+        <div
+          ref={mapRef}
+          className={styles.mapContainer}
+        />
+      </section>
       {/* Booking Form */}
       <section className={styles.hero}>
         <div className={styles.heroImage}
@@ -44,18 +125,24 @@ const FirstPage = () => {
               <Link to="/">Stay Manager</Link>
             </div>
             <div className={styles.userLinks}>
-              {/*!*/isAuthenticated ? (
-                <>
-                  <Link to="/signupPage">회원가입</Link>
-                  <Link to="/login">로그인</Link>
-                </>
-              ) : (
-                <>
-                  <span>안녕하세요, {username}님</span>
-                  <Link to="/myPage">MyPage</Link>
-                  <Link to="/logout">로그아웃</Link>
-                </>
-              )}
+              {isAuthenticated
+                ? (
+                  <>
+                    <span>안녕하세요, {username}님        </span>
+                    <Link to="/myPage">     MyPage</Link>
+                    <Link to="/"
+                      onClick={handleLogout}
+                      className={styles.logoutLink}
+                    >로그아웃</Link>
+                  </>
+                )
+                : (
+                  <>
+                    <Link to="/signupPage">회원가입</Link>
+                    <Link to="/login">로그인</Link>
+                  </>
+                )
+              }
             </div>
           </header>
         </div>

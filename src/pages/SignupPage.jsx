@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../css/SignupPage.module.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,18 +19,57 @@ const SignupPage = () => {
         birthday: ''
     });
 
-    const [agreed, setAgreed] = useState(false);
+const [agreed, setAgreed] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('회원가입 정보:', formData);
-        // TODO: 유효성 검사 및 서버 요청
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    // 1) 비밀번호 확인
+    if (formData.loginPassword !== formData.passwordConfirm) {
+      setError('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    // 2) 필수 동의 체크
+    if (!agreed) {
+      setError('개인정보 수집 및 이용에 동의하셔야 합니다.');
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:8080/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          loginID: formData.loginID,
+          loginPassword: formData.loginPassword,
+          punNumber: formData.punNumber,
+          email: formData.email,
+          birthday: formData.birthday
+        })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert('회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.');
+        navigate('/login');
+      } else {
+        // 백엔드에서 { error: "메시지" } 형태로 내려오면 표시
+        setError(data.error || '회원가입에 실패했습니다.');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('서버와 통신 중 오류가 발생했습니다.');
+    }
+  };
 
     return (
         <div className={styles.body}>
