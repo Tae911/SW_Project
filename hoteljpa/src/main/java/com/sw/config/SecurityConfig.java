@@ -34,6 +34,7 @@ public class SecurityConfig {
 	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+        	
             // 개발 중에는 CSRF를 꺼두고, 나중에 켜세요.
             .csrf(csrf -> csrf.disable())
 
@@ -81,4 +82,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+  
 }
