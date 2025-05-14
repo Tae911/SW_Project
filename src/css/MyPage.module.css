@@ -6,10 +6,6 @@
 
 .body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #fff;
-    padding: 2rem;
-    color: #333;
-    color: #565656;
 }
 
 .header {
@@ -17,56 +13,92 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    padding-right: 2rem;
+    padding-top: 0.2rem;
+    font-weight: bold;
 }
 
-.nav-links a {
+.logo {
+    padding-left: 2rem;
+    padding-top: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.navLinks a {
     margin-left: 1rem;
     text-decoration: none;
     color: #333;
+    font-size: 15px;
 }
 
+
 .h1 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
     font-size: 1.5rem;
+    margin-left: 2.5rem;
     margin-bottom: 0.5rem;
+    font-weight: 10px;
 }
 
 .h2 {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-left: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+}
+
+.h4 {
+    margin-left: 4rem;;
+    font-size: 18px;
+    color: #4b4b4b;
 }
 
 .welcome {
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem;
 }
 
-.reservation-card {
+.reservationCard {
+    margin-left: 3rem;
+    margin-right: 3rem;
     border: 1px solid #ddd;
     border-radius: 1rem;
     display: flex;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;    
 }
 
-.reservation-card img {
-    width: 200px;
+.reservationCard img {
+    width: 400px;
+    height: 250px;
     object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.reservation-info {
-    padding: 1rem;
+.reservationInfo {
+    padding: 1.5rem;
     flex: 1;
 }
 
-.reservation-buttons {
+.reservationButtons {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
     margin-top: 1rem;
+    margin-right: 4rem;
+    margin-bottom: 1rem;
 }
 
-.reservation-buttons button {
+.reservationButtons button {
     padding: 0.5rem 1rem;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -82,15 +114,18 @@
 .form label {
     display: flex;
     flex-direction: column;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 4rem;
 }
 
 .form input,
 .form textarea {
-    padding: 0.5rem;
+    padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     font-size: 1rem;
+    
 }
 
 .form .full-width {
@@ -98,39 +133,27 @@
 }
 
 .form button {
-    grid-column: 1 / -1;
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: #333;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
     cursor: pointer;
+    border-radius: 0.5rem;
 }
 
 .divider {
     border-top: 1px solid #ccc;
-    margin: 2rem 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    
 }
 
-.horizontal-group {
-    display: flex;
-    gap: 1rem;
-    grid-column: 1 / -1;
-    /* grid에서도 한 줄 차지하게 */
+.halfGroup {
+    width: 600px;
 }
 
-.horizontal-group label {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.half-group {
-    width: 50%;
-}
-
-.half-group label {
+.halfGroup label {
     display: flex;
     flex-direction: column;
 }

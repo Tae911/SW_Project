@@ -5,10 +5,7 @@
 }
 
 .body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #fff;
-    color: #333;
-    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;    
 }
 
 .header {
@@ -20,16 +17,24 @@
 }
 
 .logo {
-    font-size: 1.2rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
 }
 
-.login-link {
-    font-size: 0.9rem;
+.logo a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.loginLink {
+    font-size: 0.7rem;
 }
 
 .container {
     max-width: 500px;
-    margin: 2rem auto;
+    margin-top: 20px;
+    margin-left: 30px;
 }
 
 .h1 {
@@ -37,16 +42,18 @@
     margin-bottom: 1rem;
 }
 
-.p.subtitle {
+p.subtitle {
+    margin-left: 2rem;
     margin-bottom: 2rem;
     font-size: 17px;
-    color: #666;
+    color: #2b2b2b;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-left: 2rem;
 }
 
 .label {
@@ -72,37 +79,37 @@
     margin-top: 0.25rem;
 }
 
-.horizontal-group {
+.horizontalGroup {
     display: flex;
     gap: 1rem;
 }
 
-.horizontal-group input {
+.horizontalGroup input {
     flex: 1;
 }
 
-.id-field {
+.idField {
     display: flex;
     flex-direction: column;
 }
 
-.id-field label {
+.idField label {
     margin-bottom: 0.25rem;
     /* 약간만 간격 */
 }
 
-.id-field .dup-check {
+.idField .dup-check {
     margin-bottom: 0.25rem;
     /* 아래쪽 여백 살짝 */
 }
 
-.dup-check {
+.dupCheck {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.dup-check .input {
+.dupCheck .input {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -111,7 +118,7 @@
 
 }
 
-.dup-check .button {
+.dupCheck .button {
     padding: 0.75rem 1rem;
     background-color: #007bff;
     color: white;
@@ -139,11 +146,11 @@
     font-weight: bold;
 }
 
-.social-icons {
+.socialIcons {
     margin-top: 1rem;
 }
 
-.social-icons .a {
+.socialIcons .a {
     margin-right: 0.5rem;
     color: #666;
 }
