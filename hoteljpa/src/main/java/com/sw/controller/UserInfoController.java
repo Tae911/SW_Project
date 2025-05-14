@@ -25,8 +25,6 @@ import com.sw.repository.HotelUserRepository;
 @RequestMapping("/api")
 public class UserInfoController {
 
-	
-	
     private final HotelUserRepository hoteluserRepository;
     private final PasswordEncoder      passwordEncoder;
 
@@ -73,9 +71,7 @@ public class UserInfoController {
         return ResponseEntity.ok(Map.of("status", "success"));
     }
     
-    
-    
-    
+ 
     @GetMapping("/userinfo")
     public ResponseEntity<Map<String, Object>> userinfo(Authentication auth) {
         Map<String, Object> result = new HashMap<>();
