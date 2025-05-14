@@ -1,5 +1,7 @@
 package com.sw.config;
 
+import java.util.List;
+import org.springframework.security.config.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -9,6 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.sw.service.CustomUserDetailsService;
 
@@ -22,6 +27,21 @@ public class SecurityConfig {
 	    public SecurityConfig(CustomUserDetailsService uds) {
 	        this.userDetailsService = uds;
 	    }
+	    
+	    /*
+	    @Bean
+	    public CorsConfigurationSource corsConfigurationSource() {
+	        CorsConfiguration cfg = new CorsConfiguration();
+	        cfg.setAllowedOrigins(List.of("http://localhost:3000"));
+	        cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+	        cfg.setAllowCredentials(true);
+	        cfg.setAllowedHeaders(List.of("*"));
+
+	        UrlBasedCorsConfigurationSource src = new UrlBasedCorsConfigurationSource();
+	        src.registerCorsConfiguration("/**", cfg);
+	        return src;
+	    }    
+	    */
 
 	    @Bean
 	    public DaoAuthenticationProvider authenticationProvider() {
@@ -35,16 +55,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             // 개발 중에는 CSRF를 꺼두고, 나중에 켜기
+        	//.cors().and()
+        	.cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
-
+            
             // 1) 인증 없이 접근 허용할 URL
             .authorizeHttpRequests(auth -> auth
+            	.requestMatchers("/api/userinfo").permitAll()
                 .requestMatchers(
                   "/",              // root
                   "/firstpage",     // firstPageController
                   "/error",
                   "/signupPage",	// 회원가입 폼
-                  "/signup",		// 회원가입 
+                  "/signup",
+                  "/api/userinfo",// 회원가입 
                   "/login",         // 로그인 폼
                   "/css/**",        // 정적 리소스
                   "/js/**",
@@ -60,7 +84,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/login")           // GET /login → 로그인 폼
                 .loginProcessingUrl("/login")  // POST /login → 스프링 시큐리티가 처리
-                .defaultSuccessUrl("/firstpage", true)
+                .defaultSuccessUrl("/", true)  // .defaultSuccessUrl("/firstpage", true)
                 .failureUrl("/login?error")
                 .usernameParameter("loginID")
                 .passwordParameter("loginPassword")
@@ -82,4 +106,18 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+      CorsConfiguration cfg = new CorsConfiguration();
+      cfg.setAllowedOrigins(List.of("http://localhost:3000"));  // React 개발서버
+      cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE"));
+      cfg.setAllowedHeaders(List.of("*"));
+      cfg.setAllowCredentials(true);  // Credential(쿠키) 허용
+
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      source.registerCorsConfiguration("/**", cfg);
+      return source;
+    }
+    
 }
