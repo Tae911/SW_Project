@@ -94,7 +94,7 @@ public class SecurityConfig {
             // 3) 로그아웃
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/firstpage")
+                .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .permitAll()
             );
