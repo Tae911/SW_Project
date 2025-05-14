@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/LoginPage.module.css';
+import instargram from '../assets/instargram.jpg';
+import facebook from '../assets/facebook.jpg';
+import twitter from '../assets/twitter.jpg';
 
 const LoginPage = () => {
   const [loginID, setLoginID] = useState('');
@@ -14,11 +17,13 @@ const LoginPage = () => {
 
   return (
     <div>
-      <header className={styles.header}>
-        <div className={styles.logo}>
+      {/* Header */}
+      <header className="header">
+        <div className="logo">
           <Link to="/">🔴 Stay Manager</Link>
         </div>
       </header>
+      {/* Header */}
 
       <div className={styles.loginContainer}>
         <h1>로그인</h1>
@@ -61,39 +66,42 @@ const LoginPage = () => {
 
       {/* Footer */}
       <footer>
-        <div className={"footer-top"}>
-          <div className={"footer-section"}>
-            <div className={"footer-logo"}>Stay Manager</div>
-            <div className={"social-icons"}>
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
+        <div className="footer-top">
+          <div className="footer-section">
+            <div className="footer-logo">Stay Manager</div>
+          </div>
+
+          <div className="footer-right">
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
+            </div>
+
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
             </div>
           </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
         </div>
 
-        <div className={"footer-bottom"}>
-          <p>© 2025 Site Name. All rights reserved.</p>
+        <div className="footer-bottom">
+          <div className="social-wrapper">
+            <div className="social-icon" style={{ backgroundImage: `url(${facebook})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${instargram})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${twitter})` }}></div>
+          </div>
+          <p>© 2025 Stay Manager. All rights reserved.</p>
         </div>
       </footer>
+      {/* Footer */}
     </div>
   );
 };

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/MyPage.module.css';
 import h1 from '../assets/h1.jpg';
+import instargram from '../assets/instargram.jpg';
+import facebook from '../assets/facebook.jpg';
+import twitter from '../assets/twitter.jpg';
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState({
@@ -24,17 +27,19 @@ const MyPage = () => {
 
   return (
     <div className={styles.body}>
-      <header className={styles.header}>
-        <div className={styles.logo}>
+      {/* Header */}
+      <header className="header">
+        <div className="logo">
           <Link to="/">🔴 Stay Manager</Link>
         </div>
-        <div className={styles.navLinks}>
-          <span>OOO님</span>
+        <div className="navLinks">
+          <a>OOO님</a>
           <a href="/myPage">MyPage</a>
           <a href="/savedPage">찜 목록</a>
           <a href="/">로그아웃</a>
         </div>
       </header>
+      {/* Header */}
 
       <section className={styles.welcome}>
         <h1 className={styles.h1}>MyPage</h1>
@@ -47,7 +52,7 @@ const MyPage = () => {
 
       <h2 className={styles.h2}>나의 예약현황</h2>
       <div className={styles.reservationCard}>
-        <img style={{ backgroundImage: `url(${h1})`}}/>
+        <img style={{ backgroundImage: `url(${h1})` }} />
         <div className={styles.reservationInfo}>
           <div className={styles.sb}>
             <h3>시그니엘 부산</h3>
@@ -116,39 +121,42 @@ const MyPage = () => {
 
       {/* Footer */}
       <footer>
-        <div className={"footer-top"}>
-          <div className={"footer-section"}>
-            <div className={"footer-logo"}>Stay Manager</div>
-            <div className={"social-icons"}>
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
+        <div className="footer-top">
+          <div className="footer-section">
+            <div className="footer-logo">Stay Manager</div>
+          </div>
+
+          <div className="footer-right">
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
+            </div>
+
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
             </div>
           </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
         </div>
 
-        <div className={"footer-bottom"}>
-          <p>© 2025 Site Name. All rights reserved.</p>
+        <div className="footer-bottom">
+          <div className="social-wrapper">
+            <div className="social-icon" style={{ backgroundImage: `url(${facebook})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${instargram})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${twitter})` }}></div>
+          </div>
+          <p>© 2025 Stay Manager. All rights reserved.</p>
         </div>
       </footer>
+      {/* Footer */}
     </div>
   );
 };

@@ -5,36 +5,16 @@
 }
 
 .body {
-    font-family: 'Segoe UI', sans-serif;    
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #ccc;
-}
-
-.logo {
-    padding-left: 2rem;
-    padding-top: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.logo a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.loginLink {
-    font-size: 0.7rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .container {
     max-width: 500px;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin: 0 auto;
+    /* 수평 가운데 정렬 */
+    margin-top: 1rem;
+    /* 위 여백만 따로 줌 */
+    padding: 2rem;
 }
 
 .h1 {
@@ -120,8 +100,8 @@ p.subtitle {
 
 .dupCheck .button {
     padding: 0.75rem 1rem;
-    background-color: #007bff;
-    color: white;
+    background-color: #ff6f61;
+    color: hsl(0, 0%, 100%);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -137,7 +117,7 @@ p.subtitle {
 }
 
 .button.submit {
-    margin-top: 1rem;
+    margin-bottom: 1.5rem;
     padding: 1rem;
     background: none;
     border: 1px solid #333;

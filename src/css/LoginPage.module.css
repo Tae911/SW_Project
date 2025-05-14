@@ -13,29 +13,6 @@
     min-height: 100vh;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #ccc;
-}
-
-.logo {
-    padding-left: 2rem;
-    padding-top: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.logo a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.signupLink {
-    font-size: 0.7rem;
-}
-
 .loginContainer {
     width: 100%;
     max-width: 500px;

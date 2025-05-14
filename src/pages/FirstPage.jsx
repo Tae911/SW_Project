@@ -19,6 +19,9 @@ import event1 from '../assets/event1.jpg';
 import event2 from '../assets/event2.jpg';
 import event3 from '../assets/event3.jpg';
 import event4 from '../assets/event4.jpg';
+import instargram from '../assets/instargram.jpg';
+import facebook from '../assets/facebook.jpg';
+import twitter from '../assets/twitter.jpg';
 
 const FirstPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // 로그인 상태 가정
@@ -32,31 +35,30 @@ const FirstPage = () => {
 
   return (
     <div>
-
       {/* Booking Form */}
       <section className={styles.hero}>
         <div className={styles.heroImage}
-        style={{ backgroundImage: `url(${heroImage})` }}>
-        <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link to="/">Stay Manager</Link>
-      </div>
-      <div className={styles.userLinks}>
-        {!isAuthenticated ? (
-          <>
-            <Link to="/signupPage">회원가입</Link>
-            <Link to="/login">로그인</Link>
-          </>
-        ) : (
-          <>
-            <span>안녕하세요, {username}님</span>
-            <Link to="/myPage">MyPage</Link>
-            <Link to="/logout">로그아웃</Link>
-          </>
-        )}
-      </div>
-    </header>
-    </div>
+          style={{ backgroundImage: `url(${heroImage})` }}>
+          <header className={styles.header}>
+            <div className={styles.logo}>
+              <Link to="/">Stay Manager</Link>
+            </div>
+            <div className={styles.userLinks}>
+              {/*!*/isAuthenticated ? (
+                <>
+                  <Link to="/signupPage">회원가입</Link>
+                  <Link to="/login">로그인</Link>
+                </>
+              ) : (
+                <>
+                  <span>안녕하세요, {username}님</span>
+                  <Link to="/myPage">MyPage</Link>
+                  <Link to="/logout">로그아웃</Link>
+                </>
+              )}
+            </div>
+          </header>
+        </div>
         <div className={styles.bookingForm}>
           <h2>원하는 숙소를 예약하세요</h2>
 
@@ -191,40 +193,42 @@ const FirstPage = () => {
 
       {/* Footer */}
       <footer>
-        <div className={"footer-top"}>
-          <div className={"footer-section"}>
-            <div className={"footer-logo"}>Stay Manager</div>
-            <div className={"social-icons"}>
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
+        <div className="footer-top">
+          <div className="footer-section">
+            <div className="footer-logo">Stay Manager</div>
+          </div>
+
+          <div className="footer-right">
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
+            </div>
+
+            <div className="footer-section">
+              <h4>Topic</h4>
+              <ul>
+                <li>Page</li>
+                <li>Page</li>
+                <li>Page</li>
+              </ul>
             </div>
           </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
-
-          <div className={"footer-section"}>
-            <h4>Topic</h4>
-            <ul>
-              <li>Page</li>
-              <li>Page</li>
-              <li>Page</li>
-            </ul>
-          </div>
         </div>
 
-        <div className={"footer-bottom"}>
-          <p>© 2025 Site Name. All rights reserved.</p>
+        <div className="footer-bottom">
+          <div className="social-wrapper">
+            <div className="social-icon" style={{ backgroundImage: `url(${facebook})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${instargram})` }}></div>
+            <div className="social-icon" style={{ backgroundImage: `url(${twitter})` }}></div>
+          </div>
+          <p>© 2025 Stay Manager. All rights reserved.</p>
         </div>
       </footer>
-
+      {/* Footer */}
     </div>
   );
 };
